@@ -1,5 +1,3 @@
-require 'pry'
-
 class Triangle
   attr_accessor :sides
   def initialize(side_one, side_two, side_three)
@@ -10,9 +8,9 @@ class Triangle
   end
 
   def triangle_type
-      return :equilateral if self.sides.uniq.length == 1
-      return :isosceles if self.sides.uniq.length == 2
-      return :scalene if self.sides.uniq.length == 3
+    return :equilateral if self.sides.uniq.length == 1
+    return :isosceles if self.sides.uniq.length == 2
+    return :scalene if self.sides.uniq.length == 3
   end
 
   def illegal_sides
@@ -25,16 +23,16 @@ class Triangle
   end
 
   def kind
-    if  illegal_sides || inequality
+    if illegal_sides || inequality
       raise TriangleError
-    else 
-        triangle_type
+    else
+      triangle_type
     end
   end
 
   class TriangleError < StandardError
     def message
-      "THIS IS NOT A TRIANGLE"
+      'THIS IS NOT A TRIANGLE'
     end
   end
 end
